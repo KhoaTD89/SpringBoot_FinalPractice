@@ -2,7 +2,6 @@
          pageEncoding="ISO-8859-1" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!doctype html>
 <html lang="en">
@@ -13,7 +12,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <style>
         .header {
             border-bottom: 1px solid black;
@@ -26,12 +24,13 @@
         .sidenav {
             border-right: 1px solid black;
             height: 1000px;
+
         }
 
     </style>
 </head>
 <body>
-<div class="text-center p-5">
+<div class="text-center p-5 header">
     <h2>FRESHER MANAGEMENT WEB APPLICATION</h2>
 </div>
 <div class="container-fluid">
@@ -44,9 +43,12 @@
             </ul>
         </div>
         <div class="col-sm-9 p-5">
-            <h3 class="text-center">Fresher Details</h3>
+            <h3 class="text-center">Update Fresher Information</h3>
 
             <form:form action="/save-fresher" method="post" modelAttribute="fresher" onsubmit="return validation()">
+                <div hidden>
+                    <form:input path="id" type="text" class="form-control" id="name"/>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-6">
@@ -59,8 +61,8 @@
                 <div class="form-group row gender">
                     <label class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-6 radio">
-                            <label class="radio-inline"><input name="gender" type="radio" value="1" checked>Male</label>
-                            <label class="radio-inline"><input name="gender" type="radio" value="2">Fe-male</label>
+                        <label class="radio-inline"><input name="gender" type="radio" value="1" checked>Male</label>
+                        <label class="radio-inline"><input name="gender" type="radio" value="2">Fe-male</label>
                     </div>
                 </div>
 
@@ -92,7 +94,8 @@
                     <label class="col-sm-2 col-form-label">Gender</label>
                     <div class="col-sm-6 radio">
                         <label class="radio-inline"><input name="hasSalary" type="checkbox" value="1" checked>Has Salary</label>
-                        <label class="radio-inline"><input name="fromCampusLink" type="checkbox" value="1">From Campus Link</label>
+                        <label class="radio-inline"><input name="fromCampusLink" type="checkbox" value="1">From Campus
+                            Link</label>
                     </div>
                 </div>
 
@@ -102,6 +105,7 @@
                     </div>
                 </div>
             </form:form>
+
 
         </div>
 

@@ -39,7 +39,7 @@
             <h4>Menu</h4>
             <ul>
                 <li><a href="/show-add-fresher-form">Add a Fresher</a></li>
-                <li><a>Freshers List</a></li>
+                <li><a href="/show-freshers">Freshers List</a></li>
             </ul>
         </div>
         <div class="col-sm-9 p-5">
