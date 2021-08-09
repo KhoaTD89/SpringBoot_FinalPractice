@@ -12,6 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
     <style>
         .header {
             border-bottom: 1px solid black;
@@ -63,7 +65,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${freshers}" var="f" varStatus="x" >
+                <c:forEach items="${freshers}" var="f" varStatus="x">
                     <tr>
                         <td>${f.id}</td>
                         <td>${f.name}</td>
@@ -99,8 +101,8 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td><a href="/show-update-form?id=${f.id}">Update</a></td>
-                        <td><a href="/delete-fresher?id=${f.id}">Delete</a></td>
+                        <td class="text-center"><button><a href="/show-update-form?id=${f.id}">Update</a></button></td>
+                        <td class="text-center"><button class="danger"> <a id="delete_btn" href="/delete-fresher?id=${f.id}">Delete</a></button></td>
                     </tr>
                 </c:forEach>
 
@@ -117,6 +119,19 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#delete_btn').click(function () {
+            if (confirm('Do you want to delete this fresher?')) {
+                return true;
+            }
+            return false;
+        })
+    })
+
+</script>
+
 
 </body>
 </html>
